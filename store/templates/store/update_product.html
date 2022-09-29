@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<h1>Update</h1>
+<br>
+<br><br>
+{% if user.username == item.manager %}
+<div class="shadow p-3 mb-5 bg-white rounded">
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <center>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </center>
+        <br>
+    </form>
+</div>
+{% else %}
+Access dennied
+{% endif %}
+{% endblock %}
