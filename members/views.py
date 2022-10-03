@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import admin, login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from . forms import RegisteredUserForm
 
 
 # Register member
 def register_user(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = RegisteredUserForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
@@ -19,7 +19,7 @@ def register_user(request):
             messages.success(request, 'Registration successful')
             return HttpResponseRedirect('/')
     else:
-        form = UserCreationForm()
+        form = RegisteredUserForm()
     return render(request, 'register/user_register.html', {'form': form, })
 
 
