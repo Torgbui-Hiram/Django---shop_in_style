@@ -9,5 +9,5 @@ class Product(models.Model):
     date = models.DateTimeField('date_added')
     affiliate_link = models.CharField(
         'bussines_link', max_length=2083, blank=True, null=True)
-    manager = models.CharField('Owner', max_length=50, default='admin')
+    manager = models.CharField('Owner', max_length=50, default='')
     advert = models.TextField('Amazon')
