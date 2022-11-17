@@ -72,12 +72,13 @@
     </header>
 
     <div class="container">
+        <br><br>
         {% if messages %}
-        {% for message in messages %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{message}}
+            {% for message in messages %}
+            <strong>{{ message }}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <span aria-hidden="false">&times;</span>
             </button>
         </div>
         {% endfor %}
@@ -85,6 +86,7 @@
         {% block content %}
         {% endblock %}
     </div>
+
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">

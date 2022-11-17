@@ -5,18 +5,24 @@
 <p>Sorry there was an error with your form</p>
 {% endif %}
 <br><br><br>
-<div class="shadow p-4 mb-5 bg-body rounded">
-
-    <head>
-        <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
-    </head>
-    <br>
-    <h1 class="my_h1">Create Account</h1>
-    <form action="" method=POST>
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit" class=" btn btn-secondary">
-    </form>
+<div class="main">
+    <div class="out_form">
+        <div class="head_of">
+            <h1 class="my_h1">Create Account</h1>
+        </div>
+        <form action="" method=POST>
+            {% csrf_token %}
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter email here!"><br>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Enter username"><br>
+            <input type="password" name="password1" id="password1" class="form-control"
+                placeholder="Enter password"><br>
+            <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm password">
+            <br>
+            <center>
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </center>
+        </form>
+    </div>
 </div>
 <br><br>
 {% endblock %}
